@@ -14,14 +14,8 @@ Run `ng generate component component-name` to generate a new component. You can 
 
 Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
 
-## Running unit tests
+## FYI (for FastSpring colleagues)
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+The current buttons are for testing different functionalities of FS methods through this Angular project.
+All of them are declared in the fastspring.service.ts
+Basic knowledge of JS and some understanding of Typescript is required. Any questions or tips feel free to reach out to [Marco](mailto:maguero@fastspring.com?subject=[Angular tips])
