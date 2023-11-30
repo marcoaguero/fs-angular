@@ -18,4 +18,4 @@ Run `ng build` to build the project. The build artifacts will be stored in the `
 
 The current buttons are for testing different functionalities of FS methods through this Angular project.
 All of them are declared in the fastspring.service.ts
-Basic knowledge of JS and some understanding of Typescript is required. Any questions or tips feel free to reach out to [Marco](mailto:maguero@fastspring.com?subject=[Angular tips])
+Basic knowledge of JS and some understanding of Typescript is required. Any questions or tips feel free to reach out to [Marco](mailto:maguero@fastspring.com)
