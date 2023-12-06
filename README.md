@@ -23,7 +23,6 @@ This is a WIP
   - Loops for products rendering
   - Product Card components
   - Completing fastspring service methods
-- All of them are declared in the fastspring.service.ts
 - Basic knowledge of JS and some understanding of Typescript is required
 - Directives do not work in Angular
 
