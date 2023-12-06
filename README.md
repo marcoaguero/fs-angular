@@ -19,9 +19,9 @@ Run `ng build` to build the project. The build artifacts will be stored in the `
 This is a WIP
 
 - New functionalities!
-- - Observables for reactivity
-- - Loops for products rendering
-- - Product Card components
+  -- Observables for reactivity
+  -- Loops for products rendering
+  -- Product Card components
 - All of them are declared in the fastspring.service.ts
 - Basic knowledge of JS and some understanding of Typescript is required
 - Directives do not work in Angular
