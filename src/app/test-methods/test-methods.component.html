@@ -1,11 +1,36 @@
 <div class="container px-4 px-lg-5 mt-5 flex-grow-1 text-center">
-  <button
-    class="btn btn-success"
-    (click)="fastspringService.addItem('demo-product-1')"
-  >
-    Add 1 product
-  </button>
-  <button class="btn btn-light" (click)="fastspringService.checkout()">
-    🛒
-  </button>
+  <div class="d-row">
+    <button
+      class="btn btn-success"
+      (click)="fastspringService.addItem('demo-product-1')"
+    >
+      Add 1 product
+    </button>
+    <button class="btn btn-light" (click)="fastspringService.checkout()">
+      🛒
+    </button>
+    <div class="card border-0 align-items-end d-flex bg-transparent">
+      <div class="card-body col-md-8 col d-flex">
+        <form
+          #couponForm="ngForm"
+          class="col d-flex"
+          (ngSubmit)="fastspringService.applyCoupon(couponCode)"
+        >
+          <div class="me-2">
+            <input
+              type="text"
+              class="form-control"
+              id="couponCode"
+              name="couponCode"
+              placeholder="Coupon code"
+              required
+              [(ngModel)]="couponCode"
+              #couponCodeInput
+            />
+          </div>
+          <button type="submit" class="btn btn-light">Apply</button>
+        </form>
+      </div>
+    </div>
+  </div>
 </div>

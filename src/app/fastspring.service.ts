@@ -18,11 +18,11 @@ export class FastspringService {
   resetCart() {
     fastspring.builder.reset();
   }
-  checkout() {
-    fastspring.builder.checkout();
-  }
   addItem(item: string) {
     fastspring.builder.add(item);
+  }
+  checkout() {
+    fastspring.builder.checkout();
   }
   selectCountry(country: string) {
     // Update the dropdown button's text with the selected country
@@ -30,6 +30,20 @@ export class FastspringService {
 
     // Launch the FastSpring builder with the selected country code
     fastspring.builder.country(country);
+  }
+  applyCoupon(couponCode: string): void {
+    // Check if the coupon code is not empty
+    if (couponCode.trim() !== '') {
+      // Apply the coupon code using FastSpring API
+      if (fastspring && fastspring.builder) {
+        fastspring.builder.promo(couponCode);
+      } else {
+        console.error('FastSpring builder is not available.');
+      }
+    } else {
+      // Handle empty coupon code (you can show an error message if needed)
+      console.error('Coupon code is empty.');
+    }
   }
 
   loadScript() {
