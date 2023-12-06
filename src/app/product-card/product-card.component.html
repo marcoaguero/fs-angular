@@ -1,0 +1,18 @@
+<div class="col mb-5">
+  <div class="card h-100">
+    <img class="card-img-top" [src]="image" [alt]="path" />
+    <div class="card-body p-4">
+      <div class="text-center">
+        <h5 class="fw-bolder">{{ display }}</h5>
+        <span>{{ price }}</span>
+      </div>
+    </div>
+    <!-- Use Angular's event binding for button click -->
+    <button
+      class="btn btn-primary"
+      (click)="fastspringService.addItem(path || '')"
+    >
+      Add to cart
+    </button>
+  </div>
+</div>

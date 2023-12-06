@@ -1,0 +1,25 @@
+<section class="py-5 flex-grow-1">
+  <div class="container px-4 px-lg-5 mt-5">
+    <div
+      class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-4 row-cols-xl-4 justify-content-center"
+    >
+      <!-- Check if 'products' array has items, and if so, loop through them -->
+      <ng-container *ngIf="products && products.length > 0; else noProducts">
+        <!-- Use *ngFor to loop through 'products' and create a card for each product -->
+        <div class="col mb-5" *ngFor="let product of products">
+          <!-- Use app-product-card component to display each product -->
+          <app-product-card
+            [display]="product.display"
+            [path]="product.path"
+            [image]="product.image"
+            [price]="product.price"
+          ></app-product-card>
+        </div>
+      </ng-container>
+      <!-- If 'products' array is empty, display a message -->
+      <ng-template #noProducts>
+        <p>No products available</p>
+      </ng-template>
+    </div>
+  </div>
+</section>

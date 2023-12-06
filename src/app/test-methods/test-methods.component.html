@@ -1,13 +1,7 @@
 <div class="container px-4 px-lg-5 mt-5 flex-grow-1 text-center">
   <div class="d-row">
-    <button
-      class="btn btn-success"
-      (click)="fastspringService.addItem('demo-product-1')"
-    >
-      Add 1 product
-    </button>
     <button class="btn btn-light" (click)="fastspringService.checkout()">
-      🛒
+      🛒 {{ data.originalTotal }}
     </button>
     <div class="card border-0 align-items-end d-flex bg-transparent">
       <div class="card-body col-md-8 col d-flex">

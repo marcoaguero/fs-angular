@@ -1,5 +1,6 @@
 import { Injectable, Inject } from '@angular/core';
 import { DOCUMENT } from '@angular/common';
+import { Observable, BehaviorSubject } from 'rxjs';
 
 // This will let you use fastspring
 declare var fastspring: any;
@@ -12,8 +13,8 @@ declare function fastSpringCallBack(data: any): void;
   providedIn: 'root',
 })
 export class FastspringService {
-  private data: any;
-  private products: any[] = [];
+  private data: BehaviorSubject<any[]> = new BehaviorSubject<any[]>([]);
+  private products: BehaviorSubject<any[]> = new BehaviorSubject<any[]>([]);
   constructor(@Inject(DOCUMENT) private document: Document) {}
   resetCart() {
     fastspring.builder.reset();
@@ -25,9 +26,6 @@ export class FastspringService {
     fastspring.builder.checkout();
   }
   selectCountry(country: string) {
-    // Update the dropdown button's text with the selected country
-    // document.getElementById("countryDropdown").textContent = country;
-
     // Launch the FastSpring builder with the selected country code
     fastspring.builder.country(country);
   }
@@ -49,7 +47,7 @@ export class FastspringService {
   loadScript() {
     // Declare script properties, usual and custom ones are included in ['notation']
     window.fastSpringCallBack = (data: any) => {
-      this.data = data;
+      this.data.next(data);
       console.log(data);
       if (data && data.groups) {
         const newProducts: any[] = [];
@@ -60,7 +58,7 @@ export class FastspringService {
             });
           }
         });
-        this.products = newProducts;
+        this.products.next(newProducts);
         console.log(this.products);
       }
     };
@@ -69,6 +67,7 @@ export class FastspringService {
     script.src =
       'https://sbl.onfastspring.com/sbl/0.9.5/fastspring-builder.min.js';
     script.id = 'fsc-api';
+    script.setAttribute('data-continuous', 'true');
     script.dataset['storefront'] =
       'assignmentse.test.onfastspring.com/popup-assignmentse';
     script.dataset['dataCallback'] = 'fastSpringCallBack';
@@ -76,11 +75,11 @@ export class FastspringService {
     document.getElementsByTagName('body')[0].appendChild(script);
   }
 
-  getData(): any {
-    return this.data;
+  getData(): Observable<any> {
+    return this.data.asObservable();
   }
 
-  getProducts(): any[] {
-    return this.products;
+  getProducts(): Observable<any[]> {
+    return this.products.asObservable();
   }
 }
